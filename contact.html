@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!--
+  F&H Auto Repair — Contact Us
+  FORM WIRING: the form below posts nowhere until you set an endpoint on the
+  <form action=""> attribute. Two options, both no-code on this page:
+    1. A form service (Formspree, Basin, Netlify Forms) — paste their endpoint in action="".
+    2. Salesforce Web-to-Case — set action to the Web-to-Case servlet, add the hidden
+       orgid and retURL inputs (commented out below), and rename the fields to the
+       Case API names (name, email, phone, subject, description).
+  SHOP HOURS live in js/main.js (the HOURS object) so the status readout and this
+  list never drift apart. Change them there, then match the labels in this markup.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us — F&amp;H Auto Repair, 475 Hemlock St, Brooklyn</title>
+<meta name="description" content="Call, message, or stop by F&amp;H Auto Repair at 475 Hemlock St, Brooklyn, NY 11208. Hours, directions, parking and a request form for a written estimate.">
+<meta name="theme-color" content="#171717">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<div class="utility">
+  <div class="wrap">
+    <span>475 Hemlock St, Brooklyn, NY 11208</span>
+    <span class="utility__note">Walk-ins welcome · Estimates are free</span>
+    <a href="tel:+17185550142">(718) 555-0142</a>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="logo" href="index.html">
+      <span class="logo__mark" aria-hidden="true">F&amp;H</span>
+      <span>
+        <span class="logo__name">F&amp;H Auto Repair</span>
+        <span class="logo__sub">Hemlock St · Brooklyn</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      Menu
+    </button>
+
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul class="nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services &amp; Pricing</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html" aria-current="page">Contact Us</a></li>
+        <li class="nav__cta"><a class="btn btn--primary" href="tel:+17185550142">Call the shop</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-head">
+    <div class="wrap">
+      <p class="crumb"><a href="index.html">Home</a> / Contact Us</p>
+      <h1>Contact the shop</h1>
+      <p class="lede">
+        Fastest answer is always the phone — someone at the counter can look at the
+        schedule while you're talking. Messages sent here get a reply the same business day.
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="split">
+
+        <!-- ============ FORM ============ -->
+        <div>
+          <p class="eyebrow">Request an estimate</p>
+          <h2 style="font-size: var(--step-2); margin-bottom: 1.4rem;">Tell us about the car</h2>
+          <p style="margin-bottom: 1.8rem; color: var(--slate);">
+            The more you can describe what it's doing, the closer we can get to a real
+            number before you drive over.
+          </p>
+
+          <!-- action="" is intentionally empty: set your form endpoint here. -->
+          <form class="form" action="" method="post">
+
+            <!--
+              Salesforce Web-to-Case hidden fields — uncomment and fill in to route
+              submissions straight into a Case queue:
+              <input type="hidden" name="orgid" value="YOUR_ORG_ID">
+              <input type="hidden" name="retURL" value="https://YOURDOMAIN/thank-you.html">
+              <input type="hidden" name="origin" value="Web">
+            -->
+
+            <div class="form__pair">
+              <div class="field">
+                <label for="name">Your name <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email">
+              <p class="field__hint">Optional — we'll call unless you tell us otherwise.</p>
+            </div>
+
+            <div class="form__pair">
+              <div class="field">
+                <label for="vehicle">Year, make &amp; model <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="vehicle" name="vehicle" placeholder="2016 Honda Civic" required>
+              </div>
+              <div class="field">
+                <label for="service">What do you need?</label>
+                <select id="service" name="service">
+                  <option value="">Not sure yet</option>
+                  <option>Brakes</option>
+                  <option>Oil change or maintenance</option>
+                  <option>Check engine light</option>
+                  <option>NY State Inspection</option>
+                  <option>Tires or alignment</option>
+                  <option>A/C or heat</option>
+                  <option>Battery, starting or electrical</option>
+                  <option>Steering or suspension</option>
+                  <option>Pre-purchase inspection</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="details">What's it doing? <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="details" name="details" required
+                placeholder="Noise, warning light, when it happens, how long it's been going on…"></textarea>
+              <p class="field__hint">Mileage helps too, if you know it.</p>
+            </div>
+
+            <div class="btn-row">
+              <button class="btn btn--primary" type="submit">Send the request</button>
+              <a class="btn btn--outline" href="tel:+17185550142">Or call the shop</a>
+            </div>
+
+            <p class="field__hint" style="margin-top:.4rem;">
+              This form requests an estimate only. We don't take payment or deposits online.
+            </p>
+          </form>
+        </div>
+
+        <!-- ============ HOURS + DETAILS ============ -->
+        <div>
+          <div class="panel">
+            <p class="eyebrow">Hours</p>
+            <h2>When we're open</h2>
+            <ul class="hours" data-hours>
+              <li data-day="1"><span class="hours__day">Mon</span><span class="hours__lead" aria-hidden="true"></span><span class="hours__time">9:00 AM – 6:00 PM</span></li>
+              <li data-day="2"><span class="hours__day">Tue</span><span class="hours__lead" aria-hidden="true"></span><span class="hours__time">9:00 AM – 6:00 PM</span></li>
+              <li data-day="3"><span class="hours__day">Wed</span><span class="hours__lead" aria-hidden="true"></span><span class="hours__time">9:00 AM – 6:00 PM</span></li>
+              <li data-day="4"><span class="hours__day">Thu</span><span class="hours__lead" aria-hidden="true"></span><span class="hours__time">9:00 AM – 6:00 PM</span></li>
+              <li data-day="5"><span class="hours__day">Fri</span><span class="hours__lead" aria-hidden="true"></span><span class="hours__time">9:00 AM – 6:00 PM</span></li>
+              <li data-day="6"><span class="hours__day">Sat</span><span class="hours__lead" aria-hidden="true"></span><span class="hours__time">9:00 AM – 5:00 PM</span></li>
+              <li data-day="0"><span class="hours__day">Sun</span><span class="hours__lead" aria-hidden="true"></span><span class="hours__time">Closed</span></li>
+            </ul>
+            <p style="margin-top:1.2rem;">
+              Drop it off right at 9:00 AM and we have the best shot at getting your car
+              back the same day. Early-bird key drop is by the office door if you need to
+              leave it before we open.
+            </p>
+          </div>
+
+          <div class="panel">
+            <p class="eyebrow">The shop</p>
+            <h3>Where to find us</h3>
+            <address>
+              475 Hemlock St<br>
+              Brooklyn, NY 11208<br>
+              <a href="tel:+17185550142">(718) 555-0142</a><br>
+              <a href="mailto:service@fhautorepair.com">service@fhautorepair.com</a>
+            </address>
+            <p style="margin-top:1.1rem;">
+              Cypress Hills, near the Highland Park end of Hemlock Street. Look for the
+              red doors.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MAP ============ -->
+  <section class="band band--tight">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Getting here</p>
+        <h2>475 Hemlock St, Brooklyn, NY 11208</h2>
+      </div>
+
+      <div class="map-frame">
+        <iframe
+          title="Map showing F&amp;H Auto Repair at 475 Hemlock Street, Brooklyn, New York 11208"
+          src="https://www.google.com/maps?q=475+Hemlock+St,+Brooklyn,+NY+11208&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="grid" style="margin-top: 2rem;">
+        <article class="card">
+          <h3>Driving</h3>
+          <p>Two minutes off the Jackie Robinson Parkway and a short run from the Interborough. Pull into the lot beside the bays — don't block the drive.</p>
+          <p class="card__meta">Off-street parking for drop-offs</p>
+        </article>
+        <article class="card">
+          <h3>Transit</h3>
+          <p>Walkable from the J train, with local bus service a few blocks over. Check current routes before you head out.</p>
+          <p class="card__meta">Verify your route on the MTA app</p>
+        </article>
+        <article class="card">
+          <h3>Dropping off</h3>
+          <p>Leave the key at the counter with your name and number, or use the key drop before we open. We'll call once we've looked.</p>
+          <p class="card__meta">No appointment needed</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="wrap">
+      <div>
+        <h2>Rather just talk to somebody?</h2>
+        <p>The phone gets answered by the same people who work on the cars.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--solid-dark" href="tel:+17185550142">Call (718) 555-0142</a>
+        <a class="btn btn--outline" href="services.html">See services &amp; pricing</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <h4>F&amp;H Auto Repair</h4>
+        <p>Independent full-service repair shop in Cypress Hills, Brooklyn. Foreign and domestic, cars and light trucks.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services &amp; Pricing</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find the shop</h4>
+        <address>
+          475 Hemlock St<br>
+          Brooklyn, NY 11208<br>
+          <a href="tel:+17185550142">(718) 555-0142</a><br>
+          <a href="mailto:service@fhautorepair.com">service@fhautorepair.com</a>
+        </address>
+        <p class="footer__hours">
+          <span>Mon&ndash;Fri</span> 9:00 AM &ndash; 6:00 PM<br>
+          <span>Saturday</span> 9:00 AM &ndash; 5:00 PM<br>
+          <span>Sunday</span> Closed
+        </p>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>&copy; <span data-year>2026</span> F&amp;H Auto Repair. All rights reserved.</span>
+      <span>Estimates and payment happen at the shop — we don't process payments online.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
