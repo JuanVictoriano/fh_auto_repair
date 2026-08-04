@@ -14,9 +14,9 @@
   var HOURS = {
     0: null,              // Sunday — closed
     1: [9, 18],           // Monday
-    2: [9, 18],
-    3: [9, 18],
-    4: [9, 18],
+    2: [9, 18],           // Tuesday
+    3: [9, 18],           // Wednesday
+    4: [9, 18],           // Thursday
     5: [9, 18],           // Friday
     6: [9, 17]            // Saturday
   };
