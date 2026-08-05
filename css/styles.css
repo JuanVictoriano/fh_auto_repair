@@ -710,7 +710,7 @@ a.readout__value:hover { color: var(--safety-orange); }
   font-size: .7rem;
   letter-spacing: .16em;
   text-transform: uppercase;
-  background: #3D3F43;
+  background: #2F6DB5;
   color: #FFFFFF;
   padding: 0.25rem 0.5rem;
   margin-top: .5rem;
@@ -760,7 +760,7 @@ a.readout__value:hover { color: var(--safety-orange); }
   font-size: .74rem;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--primary-blue);
+  color: var(--off-white);
   flex: none;
 }
 .specs__val { font-weight: 500; text-align: right; }
