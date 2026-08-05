@@ -552,7 +552,7 @@ a.readout__value:hover { color: var(--safety-orange); }
   font-size: var(--step-1);
   font-variation-settings: 'wdth' 108;
 }
-.card p { font-size: .95rem; color: var(--primary-blue); margin: 0; }
+.card p { font-size: .95rem; color: var(--off-white); margin: 0; }
 .band--dark .card p, .band--primary-red .card p { color: var(--metal-silver); }
 
 /* Informational Label styling */
