@@ -67,7 +67,7 @@ body {
 img { max-width: 100%; display: block; }
 
 a { color: var(--primary-blue); text-underline-offset: .18em; }
-a:hover { color: var(--primary-red); }
+a:hover { color: var(--off-white); }
 
 h1, h2, h3, h4 {
   font-family: var(--display);
@@ -552,7 +552,7 @@ a.readout__value:hover { color: var(--safety-orange); }
   font-size: var(--step-1);
   font-variation-settings: 'wdth' 108;
 }
-.card p { font-size: .95rem; color: var(--slate); margin: 0; }
+.card p { font-size: .95rem; color: var(--primary-blue); margin: 0; }
 .band--dark .card p, .band--primary-red .card p { color: var(--metal-silver); }
 
 /* Informational Label styling */
@@ -946,7 +946,7 @@ a.readout__value:hover { color: var(--safety-orange); }
   margin-bottom: 1.1rem;
   font-variation-settings: 'wdth' 105;
 }
-.footer p { color: var(--industrial-gray); font-size: .95rem; }
+.footer p { color: var(--off-white); font-size: .95rem; }
 .footer ul { list-style: none; margin: 0; padding: 0; }
 .footer li { margin-bottom: .55rem; }
 .footer a { color: var(--light-gray); text-decoration: none; font-size: .95rem; }
