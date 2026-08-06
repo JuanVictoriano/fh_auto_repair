@@ -760,7 +760,7 @@ a.readout__value:hover { color: var(--safety-orange); }
   font-size: .74rem;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--off-white);
+  color: var(--primary-red);
   flex: none;
 }
 .specs__val { font-weight: 500; text-align: right; }
@@ -897,7 +897,7 @@ a.readout__value:hover { color: var(--safety-orange); }
    12. PAGE HEADER (interior pages)
    -------------------------------------------------------------------------- */
 .page-head {
-  background: var(--primary-red);
+  background: var(--primary-blue);
   color: var(--off-white);
   border-bottom: 3px solid #3D3F43;
   padding-block: clamp(2.6rem, 5vw, 4.4rem);
