@@ -552,7 +552,7 @@ a.readout__value:hover { color: var(--safety-orange); }
   font-size: var(--step-1);
   font-variation-settings: 'wdth' 108;
 }
-.card p { font-size: .95rem; color: var(--off-white); margin: 0; }
+.card p { font-size: .95rem; color: var(--primary-blue); margin: 0; }
 .band--dark .card p, .band--primary-red .card p { color: var(--off-white); }
 
 /* Informational Label styling */
@@ -760,7 +760,7 @@ a.readout__value:hover { color: var(--safety-orange); }
   font-size: .74rem;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--primary-red);
+  color: var(--off-white);
   flex: none;
 }
 .specs__val { font-weight: 500; text-align: right; }
@@ -918,10 +918,10 @@ a.readout__value:hover { color: var(--safety-orange); }
   font-size: .72rem;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--steel-blue);
+  color: var(--off-white);
   margin-bottom: 1rem;
 }
-.crumb a { color: var(--steel-blue); text-decoration: none; }
+.crumb a { color: var(--off-white); text-decoration: none; }
 .crumb a:hover { color: #fff; }
 
 /* --------------------------------------------------------------------------
